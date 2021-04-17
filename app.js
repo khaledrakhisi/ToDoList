@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.set("view engine", "ejs");
+app.use(express.static("static"));
 
 app.get("/", function(req, res) {
   // const date = new Date();
@@ -41,7 +42,7 @@ app.post("/", (req, res) => {
   }
   else{
     // res.send("Empty not allowed.");
-    
+
     res.redirect("/");
   }
 });

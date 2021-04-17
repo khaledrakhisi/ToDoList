@@ -3,23 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>To do list</title>
+
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
+
+    <div class="box" id="heading">
       <% if(dayOfTheWeek === "Samstag" || dayOfTheWeek === "Sonntag"){ %>
-          <h1 style="color:red;"><%= dayOfTheWeek %></h1>
+          <h1 style="color:orange;"><%= dayOfTheWeek %></h1>
       <% }else {%>
-            <h1 style="color:blue;"><%= dayOfTheWeek %></h1>
+            <h1 style="color:#fff;"><%= dayOfTheWeek %></h1>
+      <% } %>
+    </div>
+
+    <div class="box">
+      <% for(var i=0;i<listItems.length;i++){ %>
+        <div class="item">
+          <input type="checkbox">
+            <p> <%= listItems[i] %> </p>
+        </div>
       <% } %>
 
-      <ul>
-        <% for(var i=0;i<listItems.length;i++){ %>
-            <li> <%= listItems[i] %> </li>
-        <% } %>
-      </ul>
-
-      <form class="" action="/" method="post">
-        <input type="text" name="txt_todo" placeholder="etwas eingeben" required>
-        <input type="submit" name="submit" value="submit">
+      <form class="item" action="/" method="post">
+        <input type="text" name="txt_todo" placeholder="etwas eingeben" required autocomplete="off">
+        <button type="submit" name="btn_add">+</button>
       </form>
+    </div>
+
+
   </body>
 </html>
