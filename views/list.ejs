@@ -6,9 +6,20 @@
   </head>
   <body>
       <% if(dayOfTheWeek === "Samstag" || dayOfTheWeek === "Sonntag"){ %>
-          <h1 style="color:red;">Heute ist <%= dayOfTheWeek %></h1>
+          <h1 style="color:red;"><%= dayOfTheWeek %></h1>
       <% }else {%>
-            <h1 style="color:blue;">Heute ist <%= dayOfTheWeek %></h1>
+            <h1 style="color:blue;"><%= dayOfTheWeek %></h1>
       <% } %>
+
+      <ul>
+        <% for(var i=0;i<listItems.length;i++){ %>
+            <li> <%= listItems[i] %> </li>
+        <% } %>
+      </ul>
+
+      <form class="" action="/" method="post">
+        <input type="text" name="txt_todo" placeholder="etwas eingeben" required>
+        <input type="submit" name="submit" value="submit">
+      </form>
   </body>
 </html>
