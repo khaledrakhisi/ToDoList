@@ -5,7 +5,7 @@ const ejs = require("ejs");
 const app = express();
 const n_port = 3000;
 
-var items = [];
+let items = [];
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -34,7 +34,7 @@ app.get("/", function(req, res) {
 });
 
 app.post("/", (req, res) => {
-  var s_item = req.body.txt_todo;
+  let s_item = req.body.txt_todo;
   if (s_item) {
     items.push(s_item);
     res.redirect("/");
