@@ -41,6 +41,7 @@ app.post("/", (req, res) => {
   }
   else{
     // res.send("Empty not allowed.");
+    
     res.redirect("/");
   }
 });
