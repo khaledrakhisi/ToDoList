@@ -5,6 +5,10 @@
     <title>To do list</title>
   </head>
   <body>
-      <h1>Heute ist <%= dayOfTheWeek %></h1>
+      <% if(dayOfTheWeek === "Samstag" || dayOfTheWeek === "Sonntag"){ %>
+          <h1 style="color:red;">Heute ist <%= dayOfTheWeek %></h1>
+      <% }else {%>
+            <h1 style="color:blue;">Heute ist <%= dayOfTheWeek %></h1>
+      <% } %>
   </body>
 </html>
