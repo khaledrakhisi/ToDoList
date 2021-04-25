@@ -1,35 +1,24 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>To do list</title>
-
-    <link rel="stylesheet" href="css/styles.css">
-  </head>
-  <body>
+    <%- include("header.ejs") -%>
 
     <div class="box" id="heading">
-      <% if(dayOfTheWeek === "Samstag" || dayOfTheWeek === "Sonntag"){ %>
-          <h1 style="color:orange;"><%= dayOfTheWeek %></h1>
-      <% }else {%>
-            <h1 style="color:#fff;"><%= dayOfTheWeek %></h1>
-      <% } %>
+      <h1><%= listTitle %></h1>
     </div>
 
     <div class="box">
-      <% for(var i=0;i<listItems.length;i++){ %>
-        <div class="item">
-          <input type="checkbox">
-            <p> <%= listItems[i] %> </p>
-        </div>
-      <% } %>
+      <% listItems.forEach((item, i) => { %>
+        <form action="/del" method="post">
+          <div class="item">
+            <input type="checkbox" name="chk_item" value="<%= item._id %>" onchange="this.form.submit()">
+              <p> <%= item.name %> </p>
+          </div>
+        </form>
+      <% }); %>
+
 
       <form class="item" action="/" method="post">
         <input type="text" name="txt_todo" placeholder="etwas eingeben" required autocomplete="off">
-        <button type="submit" name="btn_add">+</button>
+        <button type="submit" name="btn_add" value="<%= listTitle %>">+</button>
       </form>
     </div>
 
-
-  </body>
-</html>
+    <%- include("footer.ejs") -%>
