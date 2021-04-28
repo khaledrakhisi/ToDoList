@@ -5,7 +5,7 @@
     </div>
 
     <div class="box">
-      <% listItems.forEach((item, i) => { %>
+      <% listItemsToDisplay.forEach((item, i) => { %>
         <form action="/del" method="post">
           <div class="item">
             <input type="checkbox" name="chk_item" value="<%= item._id %>" onchange="this.form.submit()">
